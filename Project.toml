@@ -1,0 +1,16 @@
+name = "Brikhead"
+uuid = "4a100c4f-64d8-47b9-a3b1-a577792216b4"
+authors = ["Zaki A <zaki@live.ca> and contributors"]
+version = "0.0.1"
+
+[deps]
+Libz = "2ec943e9-cfe8-584d-b93d-64dcb6d567b7"
+
+[compat]
+julia = "1.5"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
