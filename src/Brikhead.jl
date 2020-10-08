@@ -1,4 +1,4 @@
-module BRIKHEAD
+module Brikhead
 
 using Libz
 
