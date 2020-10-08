@@ -112,7 +112,7 @@ end
 
 function get_resolution(hdr)
     voxel_sizes = abs.(hdr.delta)
-    if haskey(hdr, :taxis_floatss)
+    if haskey(hdr, :taxis_floats)
         temporal_resolution = hdr.taxis_floats[2]
     else
         temporal_resolution = 0
@@ -189,7 +189,7 @@ function parse_afni_brik(file, hdr)
     vol_shape = get_shape(hdr)
     num_elements = prod(vol_shape)
     briktype = briktypes[hdr.brick_types[1]]
-    filebytes = Libz.inflate(read(file))
+    filebytes = is_gz(file) ? Libz.inflate(read(file)) : read(file)
     # ToDo? Account for: d.byteorder_string
     image_volume = reshape(reinterpret(briktype, filebytes), vol_shape)
     return permutedims(image_volume, (2,1,3,4))
