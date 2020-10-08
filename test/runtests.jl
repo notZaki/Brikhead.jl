@@ -43,6 +43,7 @@ end
 @testset "BRIKHEAD.jl" begin
     samples = [download_sample(file) for file in filenames]
     load_brikhead_dir(brikhead_dir)
+    load_brikhead(joinpath(brikhead_dir, filenames[1]))
     load_brikhead(samples[1].brik)
     (hdr, img) = load_brikhead(samples[end].head)
     Brikhead.get_resolution(hdr)
